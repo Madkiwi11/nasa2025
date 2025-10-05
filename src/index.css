@@ -1,0 +1,373 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Vibrant botanical color palette inspired by Casa Portofornia and colorful 3D designs */
+  --background: oklch(0.97 0.01 85);
+  --foreground: oklch(0.15 0.02 85);
+  --card: oklch(0.99 0.005 85);
+  --card-foreground: oklch(0.15 0.02 85);
+  --popover: oklch(0.99 0.005 85);
+  --popover-foreground: oklch(0.15 0.02 85);
+  --primary: oklch(0.45 0.18 160);
+  --primary-foreground: oklch(0.98 0.01 160);
+  --secondary: oklch(0.92 0.04 340);
+  --secondary-foreground: oklch(0.15 0.02 340);
+  --muted: oklch(0.94 0.02 85);
+  --muted-foreground: oklch(0.5 0.02 85);
+  --accent: oklch(0.55 0.2 145);
+  --accent-foreground: oklch(0.98 0.01 145);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --border: oklch(0.88 0.02 85);
+  --input: oklch(0.88 0.02 85);
+  --ring: oklch(0.55 0.2 145);
+  --radius: 1rem;
+
+  /* Botanical accent colors */
+  --botanical-pink: oklch(0.85 0.08 340);
+  --botanical-coral: oklch(0.75 0.15 25);
+  --botanical-green: oklch(0.65 0.15 145);
+  --botanical-yellow: oklch(0.85 0.15 85);
+  --botanical-purple: oklch(0.65 0.12 290);
+  --botanical-blue: oklch(0.7 0.12 240);
+}
+
+@theme inline {
+  --font-sans: "Geist", system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-healthy: rgb(34, 197, 94);
+  --color-blooming: rgb(234, 179, 8);
+  --color-stressed: rgb(239, 68, 68);
+  --color-dormant: rgb(120, 113, 108);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Enhanced animations with botanical movements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite;
+}
+
+.animate-rotate {
+  animation: rotate 20s linear infinite;
+}
+
+.animate-bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Botanical gradient backgrounds */
+.botanical-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--botanical-pink) 0%,
+    var(--botanical-yellow) 50%,
+    var(--botanical-green) 100%
+  );
+}
+
+.botanical-gradient-soft {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 182, 193, 0.2) 0%,
+    rgba(255, 239, 186, 0.2) 50%,
+    rgba(144, 238, 144, 0.2) 100%
+  );
+}
+
+/* Enhanced map container with colorful border */
+.map-container {
+  height: 600px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--color-border), 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, var(--botanical-green), var(--botanical-purple), var(--botanical-coral)) border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced transitions with spring-like effects */
+button,
+a,
+.card {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+button:hover,
+a:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.card:hover {
+  box-shadow: 0 0 0 1px var(--color-border), 0 25px 30px -5px rgb(0 0 0 / 0.15);
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Colorful glassmorphism effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* Decorative floating elements */
+.floating-decoration {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, var(--botanical-green), var(--botanical-purple), var(--botanical-coral));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Plant card with hover effect */
+.plant-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.plant-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.plant-card:hover::before {
+  left: 100%;
+}
+
+/* Status badge with glow effect */
+.status-badge {
+  position: relative;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.status-healthy {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.3));
+  color: rgb(22, 163, 74);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.status-blooming {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(234, 179, 8, 0.3));
+  color: rgb(202, 138, 4);
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+}
+
+.status-stressed {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.3));
+  color: rgb(220, 38, 38);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+.status-dormant {
+  background: linear-gradient(135deg, rgba(120, 113, 108, 0.2), rgba(120, 113, 108, 0.3));
+  color: rgb(87, 83, 78);
+  box-shadow: 0 0 20px rgba(120, 113, 108, 0.3);
+}
